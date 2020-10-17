@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body dir="rtl">
+    <script type="text/javascript" language="javascript">
+       var flage = false;
+        function addMark(Mark) {
+            Mark.selected = "selectd";
+          flage = true;
+        }
+        function addNumber(number) {
+            if (flage == false) {
+
+
+                var txtNumber = document.getElementById("TextNumber1");
+                txtNumber.value = txtNumber.value + number;
+
+
+            }
+
+            else 
+               var txtNumber = document.getElementById("TextNumber2");
+                txtNumber.value = txtNumber.value + number;
+        }
+       
+        function equle() {
+            var txtEqual = document.getElementById("textEqule");
+            var Number2 = document.getElementById("TextNumber2").value;
+            var Number1 = document.getElementById("TextNumber1").value;
+            switch (document.getElementById("SelectMark").value) {
+                case "+":
+                    txtEqual.value = (parseFloat(Number1) + parseFloat(Number2)).toString();
+                    break;
+                case "-":
+                    txtEqual.value = (parseFloat(Number1) - parseFloat(Number2)).toString();
+                    break;
+                case "*":
+                    txtEqual.value = (parseFloat(Number1) * parseFloat(Number2)).toString();
+                    break;
+                  case "/":
+                    txtEqual.value = (parseFloat(Number1) / parseFloat(Number2)).toString();
+                    break;
+                default:
+            }
+            
+            document.getElementById("TextNumber1").value = "";
+            document.getElementById("TextNumber2").value = "";
+            flage = false;
+        }
+        function Clear() {
+            document.getElementById("TextNumber1").value="";
+            document.getElementById("TextNumber2").value = "";
+             document.getElementById("textEqule").value="";
+        }
+        flage = false;
+        function Delete() {
+             var value = document.getElementById("TextNumber1").value;
+            document.getElementById("TextNumber1").value = value.substr(0, value.length - 1);
+                      var value = document.getElementById("TextNumber2").value;
+            document.getElementById("TextNumber2").value = value.substr(0, value.length - 1);
+                            var value = document.getElementById("textEqule").value;
+            document.getElementById("textEqule").value = value.substr(0, value.length - 1);
+
+            }
+             flage = false;
+
+      
+            
+      
+       
+       
+    </script>
+    <table align="center">
+        <td><input id="textEqule" type="text" readonly="readonly" /></td>
+        <td><input id="btnEqule" type="button"  value="=" onclick="equle()"/></td>
+        <td><input id="TextNumber2" type="text" /></td>
+        
+        </td>
+        <td><select id="SelectMark">
+    <option id="optplus">+</option>
+    <option id="optminus">-</option>
+    <option id="optMull">*</option>
+    <option id="optdiff">/</option>
+</select> </td>
+        <td><input id="TextNumber1" type="text" /></td>
+    </table>
+    <table align="center">
+        <tr>
+            <td><input id="Button1" type="button" value="/" onclick= "addMark(optdiff)" /></td>
+            <td><input id="Button1" type="button" value="9"  onclick= "addNumber(9) "/></td>
+            <td><input id="Button1" type="button" value="8"  onclick= "addNumber(8) "/></td>
+            <td><input id="Button1" type="button" value="7"  onclick= "addNumber(7)" /></td>
+        </tr>
+        <tr>
+            <td><input id="Button1" type="button" value="*"  onclick="addMark(optMull)"/></td>
+            <td><input id="Button1" type="button" value="6" onclick= "addNumber(6)"/></td>
+            <td><input id="Button1" type="button" value="5" onclick= "addNumber(5)" /></td>
+            <td><input id="Button1" type="button" value="4" onclick= "addNumber(4)"/></td>
+        </tr>
+        <tr>
+            <td><input id="Button1" type="button" value="-" onclick="addMark(optminus)" /></td>
+            <td><input id="Button1" type="button" value="0" /></td>
+            <td><input id="Button1" type="button" value="." onclick="deciml()" /></td>
+            <td><input id="btnClear" type="button" value="Clear" onclick="Clear()" /></td>
+            <td><input id="btnDelete" type="button" value="Delete" onclick="Delete()" /></td>
+
+        </tr>
+        <tr>
+            <td><input id="Button1" type="button" value="+" onclick="addMark(optplus)" /></td>
+            <td><input id="Button1" type="button" value="3" onclick= "addNumber(3)"/></td>
+            <td><input id="Button1" type="button" value="2" onclick= "addNumber(2)"/></td>
+            <td><input id="Button1" type="button" value="1" onclick= "addNumber(1)"/></td>
+        </tr>
+    </table>
+</body>
+</html>
